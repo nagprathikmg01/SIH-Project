@@ -33,23 +33,26 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '.
 import { Textarea } from './ui/textarea';
 import { Switch } from './ui/switch';
 import { Progress } from './ui/progress';
+import { useAuth } from '../contexts/AuthContext';
 
 export function ProfileSection() {
   const [isEditing, setIsEditing] = useState(false);
+  const { user, updateUser } = useAuth();
+  
   const [profileData, setProfileData] = useState({
-    name: 'Rajesh Kumar Gowda',
-    email: 'rajesh.gowda@gmail.com',
-    phone: '+91 98765 43210',
-    location: 'Mandya District, Karnataka',
-    address: 'Village: Srirangapatna, Taluk: Mandya',
-    farmSize: '12 acres',
-    experience: '15 years',
-    mainCrops: ['Sugarcane', 'Rice', 'Coconut'],
-    farmType: 'Mixed Farming',
-    language: 'Kannada',
-    notifications: true,
-    weatherAlerts: true,
-    marketUpdates: true
+    name: user?.name || '',
+    email: user?.email || '',
+    phone: user?.phone || '',
+    location: user?.district || '',
+    address: user?.address || '',
+    farmSize: user?.farmSize || '',
+    experience: user?.experience || '',
+    mainCrops: user?.mainCrops || [],
+    farmType: user?.farmType || '',
+    language: user?.language || 'Kannada',
+    notifications: user?.notifications ?? true,
+    weatherAlerts: user?.weatherAlerts ?? true,
+    marketUpdates: user?.marketUpdates ?? true
   });
 
   const farmHistory = [
@@ -138,8 +141,8 @@ export function ProfileSection() {
   };
 
   const saveProfile = () => {
+    updateUser(profileData);
     setIsEditing(false);
-    // Here you would typically save to a backend
     console.log('Profile saved:', profileData);
   };
 

@@ -1,33 +1,32 @@
-import { Navigation } from './components/Navigation';
-import { HeroSection } from './components/HeroSection';
-import { Dashboard } from './components/Dashboard';
-import { CropsSection } from './components/CropsSection';
-import { SoilInsights } from './components/SoilInsights';
-import { AIPredictions } from './components/AIPredictions';
-import { ImageGallerySection } from './components/ImageGallerySection';
-import { ProfileSection } from './components/ProfileSection';
-import { Testimonials } from './components/Testimonials';
-import { Footer } from './components/Footer';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
+import { AuthProvider } from './contexts/AuthContext';
+import { ProtectedRoute } from './components/ProtectedRoute';
+import { HomePage } from './pages/HomePage';
+import { SignInPage } from './pages/SignInPage';
+import { DashboardPage } from './pages/DashboardPage';
 import { Toaster } from './components/ui/sonner';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-background">
-      <Navigation />
-      
-      <main>
-        <HeroSection />
-        <Dashboard />
-        <CropsSection />
-        <SoilInsights />
-        <AIPredictions />
-        <ImageGallerySection />
-        <ProfileSection />
-        <Testimonials />
-      </main>
-      
-      <Footer />
-      <Toaster />
-    </div>
+    <AuthProvider>
+      <Router>
+        <div className="min-h-screen bg-background">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/signin" element={<SignInPage />} />
+            <Route 
+              path="/dashboard" 
+              element={
+                <ProtectedRoute>
+                  <DashboardPage />
+                </ProtectedRoute>
+              } 
+            />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+          <Toaster />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }

@@ -1,149 +1,186 @@
+# Karnataka Agricultural App UI
 
-# 🌾 Karnataka Agricultural App UI
+A comprehensive smart farming platform designed specifically for Karnataka farmers, featuring AI-powered crop predictions, soil analysis, and district-specific insights.
 
-> **A Modern, Intelligent Agricultural Management Platform for Karnataka Farmers**
+## 🌟 Features
 
-[![React](https://img.shields.io/badge/React-18.3.1-blue.svg)](https://reactjs.org/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-5.0+-blue.svg)](https://www.typescriptlang.org/)
-[![Vite](https://img.shields.io/badge/Vite-6.3.5-646CFF.svg)](https://vitejs.dev/)
-[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.0+-38B2AC.svg)](https://tailwindcss.com/)
-[![Radix UI](https://img.shields.io/badge/Radix_UI-Latest-161618.svg)](https://www.radix-ui.com/)
+### Authentication System
+- **Separate Sign-In Page**: Dedicated login/signup interface
+- **User-Specific Data**: Each user sees only their own data
+- **Protected Routes**: Secure access to dashboard features
+- **Demo Accounts**: Pre-configured accounts for testing
 
-## 🚀 Overview
+### Dashboard Sections
+- **Home**: Overview with market prices, weather, and crop recommendations
+- **Crops**: Detailed crop information and recommendations
+- **Soil & Diseases**: Interactive Karnataka map with district-specific data
+- **AI Predictions**: Personalized crop recommendations based on user inputs
+- **Profile**: User profile management with farming history and achievements
 
-The **Karnataka Agricultural App UI** is a cutting-edge, responsive web application designed to revolutionize agricultural practices in Karnataka, India. Built with modern web technologies, this platform empowers farmers with intelligent insights, crop management tools, and data-driven decision-making capabilities.
+### Karnataka Map Integration
+- **31 Districts**: Complete coverage of all Karnataka districts
+- **Interactive Features**: Click on districts to view detailed information
+- **User District Highlighting**: Your district is highlighted in green
+- **Comprehensive Data**: Soil type, rainfall, temperature, crops, and industries
 
-## ✨ Key Features
+### User-Specific Features
+- **Personalized Dashboard**: Data tailored to user's district and preferences
+- **Farming History**: Track past crops, yields, and profits
+- **Achievements**: Badges and recognition for farming milestones
+- **Settings**: Customizable notifications and preferences
 
-### 🎯 **Smart Dashboard**
-- Real-time agricultural data visualization
-- Weather integration and forecasting
-- Crop health monitoring
-- Market price tracking
-
-### 🌱 **Crop Management**
-- Comprehensive crop database
-- Planting schedules and reminders
-- Growth tracking and analytics
-- Pest and disease identification
-
-### 🤖 **AI-Powered Insights**
-- Predictive analytics for crop yields
-- Soil health recommendations
-- Optimal planting time suggestions
-- Risk assessment and mitigation
-
-### 📊 **Soil Analysis**
-- Detailed soil composition reports
-- Nutrient deficiency detection
-- Fertilizer recommendations
-- pH level monitoring
-
-### 👤 **Farmer Profile**
-- Personal agricultural portfolio
-- Historical crop data
-- Achievement tracking
-- Community connections
-
-### 📸 **Visual Documentation**
-- Crop progress photography
-- Before/after comparisons
-- Shareable success stories
-- Community gallery
-
-## 🛠️ Technology Stack
-
-- **Frontend Framework**: React 18.3.1 with TypeScript
-- **Build Tool**: Vite 6.3.5 (Lightning-fast development)
-- **Styling**: Tailwind CSS with custom components
-- **UI Components**: Radix UI (Accessible & Beautiful)
-- **Icons**: Lucide React
-- **Charts**: Recharts for data visualization
-- **Forms**: React Hook Form
-- **Animations**: Framer Motion
-
-## 🚀 Quick Start
+## 🚀 Getting Started
 
 ### Prerequisites
-- Node.js 16+ 
+- Node.js (v16 or higher)
 - npm or yarn
 
 ### Installation
 
+1. Clone the repository:
 ```bash
-# Clone the repository
-git clone https://github.com/nagprathikmg01/SIH-Project.git
+git clone <repository-url>
+cd karnataka-agricultural-app-ui
+```
 
-# Navigate to project directory
-cd SIH-Project
-
-# Install dependencies
+2. Install dependencies:
+```bash
 npm install
+```
 
-# Start development server
+3. Start the development server:
+```bash
 npm run dev
 ```
 
-### Build for Production
+4. Open your browser and navigate to `http://localhost:5173`
 
-```bash
-# Create production build
-npm run build
+## 🔐 Demo Accounts
 
-# Preview production build
-npm run preview
+For testing purposes, the following demo accounts are available:
+
+| Email | Password | District | Farm Type |
+|-------|----------|----------|-----------|
+| rajesh.gowda@gmail.com | password123 | Mandya | Mixed Farming |
+| priya.sharma@gmail.com | password123 | Mysore | Organic Farming |
+| kumar.reddy@gmail.com | password123 | Bangalore Rural | Commercial Farming |
+
+## 🗺️ Karnataka Districts
+
+The application includes comprehensive data for all 31 districts of Karnataka:
+
+### Northern Karnataka
+- Belgaum, Hubli-Dharwad, Gulbarga, Bijapur, Bellary, Raichur, Koppal, Gadag, Haveri, Bagalkot, Vijayapura, Yadgir
+
+### Central Karnataka
+- Bangalore Rural, Bangalore Urban, Tumkur, Chitradurga, Davanagere, Kolar, Chikballapur, Ramanagara
+
+### Southern Karnataka
+- Mysore, Hassan, Mandya, Shimoga, Chikmagalur, Kodagu, Chamarajanagar
+
+### Coastal Karnataka
+- Uttara Kannada, Dakshina Kannada, Udupi
+
+## 🏗️ Architecture
+
+### Components Structure
+```
+src/
+├── components/
+│   ├── ui/                 # Reusable UI components
+│   ├── AuthModal.tsx       # Authentication modal
+│   ├── Dashboard.tsx       # Main dashboard
+│   ├── KarnatakaMap.tsx    # Interactive map component
+│   ├── ProfileSection.tsx  # User profile management
+│   ├── SoilInsights.tsx    # Soil and disease analysis
+│   └── AIPredictions.tsx   # AI crop recommendations
+├── contexts/
+│   └── AuthContext.tsx     # Authentication state management
+├── pages/
+│   ├── HomePage.tsx        # Landing page
+│   ├── SignInPage.tsx      # Authentication page
+│   └── DashboardPage.tsx   # Main application dashboard
+└── App.tsx                 # Main application component
 ```
 
-## 📱 Responsive Design
+### Key Features
 
-The application is fully responsive and optimized for:
-- 📱 Mobile devices (320px+)
-- 📱 Tablets (768px+)
-- 💻 Desktop (1024px+)
-- 🖥️ Large screens (1440px+)
+#### Authentication Context
+- User state management
+- Login/signup functionality
+- Protected route handling
+- User data persistence
 
-## 🎨 Design System
+#### Interactive Map
+- SVG-based Karnataka map
+- District-specific data
+- User location highlighting
+- Comprehensive district information
 
-- **Modern UI/UX**: Clean, intuitive interface following Material Design principles
-- **Accessibility**: WCAG 2.1 compliant with keyboard navigation support
-- **Dark/Light Mode**: Automatic theme switching based on user preference
-- **Custom Components**: Reusable UI components built with Radix UI
+#### User-Specific Data
+- Personalized dashboard
+- District-based recommendations
+- Individual farming history
+- Customizable preferences
 
-## 🌟 Project Highlights
+## 🎨 UI/UX Features
 
-- **Performance Optimized**: Lazy loading, code splitting, and optimized bundles
-- **SEO Ready**: Meta tags, structured data, and semantic HTML
-- **PWA Ready**: Service worker support for offline functionality
-- **Internationalization**: Multi-language support ready
-- **Analytics Ready**: Google Analytics and custom event tracking
+- **Responsive Design**: Works on desktop, tablet, and mobile
+- **Modern Interface**: Clean, intuitive design with smooth animations
+- **Accessibility**: Keyboard navigation and screen reader support
+- **Multi-language**: Support for Kannada, English, and Hindi
+- **Dark/Light Mode**: Theme switching capability
+
+## 🔧 Technology Stack
+
+- **Frontend**: React 18 with TypeScript
+- **Routing**: React Router DOM
+- **Styling**: Tailwind CSS
+- **UI Components**: Radix UI primitives
+- **Animations**: Framer Motion
+- **Charts**: Recharts
+- **Icons**: Lucide React
+
+## 📱 Mobile Support
+
+The application is fully responsive and optimized for mobile devices:
+- Touch-friendly interface
+- Mobile navigation menu
+- Optimized layouts for small screens
+- Fast loading and smooth performance
+
+## 🌐 Browser Support
+
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
 1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+2. Create a feature branch
+3. Make your changes
+4. Add tests if applicable
+5. Submit a pull request
 
 ## 📄 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License.
 
 ## 🙏 Acknowledgments
 
-- Original design inspiration from [Figma Design](https://www.figma.com/design/apLUUAPi3K3B6BkbUjXPRI/Karnataka-Agricultural-App-UI)
-- Karnataka State Government for agricultural data and insights
-- Local farming communities for feedback and requirements
+- Karnataka State Government for agricultural data
+- Local farmers for insights and feedback
+- Open source community for tools and libraries
 
 ## 📞 Support
 
-For support, email support@karnataka-agriculture.app or join our [Discord community](https://discord.gg/karnataka-agriculture).
+For support and questions:
+- Email: support@karnatakkrishi.com
+- Phone: +91-80-XXXX-XXXX
+- Website: https://karnatakkrishi.com
 
 ---
 
-<div align="center">
-  <strong>🌾 Empowering Karnataka Farmers with Technology 🌾</strong>
-</div>
-  
+**Built with ❤️ for Karnataka Farmers**
